@@ -1,16 +1,18 @@
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCars } from 'redux/api';
+import CarsList from './CarsList/CarsList';
+
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCars());
+  });
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <div>
       React homework template
+      <CarsList />
     </div>
   );
 };
