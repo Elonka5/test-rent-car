@@ -1,36 +1,45 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectIsOpen } from 'redux/modal/modalSelectors';
-import { closeModal } from 'redux/modal/modalSlice';
+import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux';
+import { Backdrop, ModalContainer } from './ModalFormStyled';
+import { openModal } from 'redux/modal/modalSlice';
 
-const ModalForm = () => {
-  const isModalOpen = useSelector(selectIsOpen);
-  //   const modalData = useSelector(selectModalData);
+const modalContainer = document.getElementById('modal');
+
+const ModalForm = ({ children }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!isModalOpen) return;
     const onCloseModalEsc = evt => {
       if (evt.code === 'Escape') {
-        dispatch(closeModal());
+        dispatch(openModal());
       }
     };
+
     window.addEventListener('keydown', onCloseModalEsc);
     return () => {
       window.removeEventListener('keydown', onCloseModalEsc);
     };
-  }, [dispatch, isModalOpen]);
+  }, [dispatch]);
 
-  //   const onCloseBackdrop = evt => {
-  //     if (evt.currentTarget === evt.target) {
-  //       dispatch(closeModal());
-  //     }
-  //   };
-  //   const handleCloseBtn = () => {
-  //     dispatch(closeModal());
-  //   };
+  const onCloseModal = evt => {
+    if (evt.currentTarget === evt.target) {
+      dispatch(openModal());
+    }
+  };
+  const handleCloseModal = () => {
+    dispatch(openModal());
+  };
 
-  return <div>ModalForm</div>;
+  return createPortal(
+    <Backdrop onClick={onCloseModal}>
+      <ModalContainer>
+        <button onClick={handleCloseModal}></button>
+        {children}
+      </ModalContainer>
+    </Backdrop>,
+    modalContainer
+  );
 };
 
 export default ModalForm;
