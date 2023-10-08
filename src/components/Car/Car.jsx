@@ -1,4 +1,5 @@
 import React from 'react';
+import { BtnFav } from './CarStyled';
 // import { useSelector } from 'react-redux';
 // import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
 
@@ -21,7 +22,7 @@ const Car = ({
   return (
     <li key={id}>
       <img src={img} alt="car" />
-      <button onClick={onSwitchFavorite}></button>
+      <BtnFav onClick={onSwitchFavorite}></BtnFav>
       <h2>
         {' '}
         {make}
