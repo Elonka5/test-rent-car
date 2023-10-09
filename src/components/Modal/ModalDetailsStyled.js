@@ -9,6 +9,11 @@ export const ImgModal = styled.img`
   margin-bottom: 8px;
   margin-top: 18px;
 
+  @media screen and (min-width: 340px) and (max-width: 767.9px) {
+    width: 100%;
+    height: 160px;
+  }
+
   @media only screen and (min-width: 768px) {
     width: 469px;
     height: 200px;

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const WrapList = styled.div`
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
 `;
 
 export const CardList = styled.ul`

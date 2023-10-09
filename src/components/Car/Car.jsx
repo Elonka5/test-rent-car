@@ -12,6 +12,8 @@ import {
 import { useSelector } from 'react-redux';
 import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
 import { BtnStyled } from 'components/Button/ButtonStyled';
+import defaultImage from '../../images/defaultImage.jpg';
+import { useState } from 'react';
 
 const Car = ({
   id,
@@ -30,10 +32,19 @@ const Car = ({
 }) => {
   const isFavoriteCar = useSelector(selectFavoriteCar);
   const isFavorite = isFavoriteCar.some(item => item.id === id);
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
 
   return (
     <Card key={id}>
-      <img src={img} alt="car" />
+      {imageError ? (
+        <img src={defaultImage} alt="Default" />
+      ) : (
+        <img src={img || defaultImage} alt="car" onError={handleImageError} />
+      )}
       <BtnFav onClick={onSwitchFavorite}>
         {isFavorite ? <FaHeartStyled /> : <FiHeartStyled />}
       </BtnFav>
