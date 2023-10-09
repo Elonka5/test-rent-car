@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useDispatch } from 'react-redux';
-import { Backdrop, ModalContainer } from './ModalFormStyled';
+import {
+  Backdrop,
+  CloseBtn,
+  CloseSvg,
+  ModalContainer,
+} from './ModalFormStyled';
 import { openModal } from 'redux/modal/modalSlice';
 
 const modalContainer = document.getElementById('modal');
@@ -34,7 +39,9 @@ const ModalForm = ({ children }) => {
   return createPortal(
     <Backdrop onClick={onCloseModal}>
       <ModalContainer>
-        <button onClick={handleCloseModal}></button>
+        <CloseBtn onClick={handleCloseModal}>
+          <CloseSvg />
+        </CloseBtn>
         {children}
       </ModalContainer>
     </Backdrop>,

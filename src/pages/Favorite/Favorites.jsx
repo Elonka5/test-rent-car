@@ -11,6 +11,8 @@ import { selectIsOpen } from 'redux/modal/modalSelectors';
 import ModalForm from 'components/Modal/ModalForm';
 import ModalDetails from 'components/Modal/ModalDetails';
 import { selectCarData } from 'redux/cars/carsSelectors';
+import { Container } from 'pages/Catalog/CatalogStyled';
+import { FavoriteWrap } from './FavoritesStyled';
 
 const Favorites = () => {
   const favoriteCars = useSelector(selectFavoriteCar);
@@ -42,12 +44,11 @@ const Favorites = () => {
   };
 
   return (
-    <div>
-      <h2>Favorite Cars</h2>
+    <Container>
       {favoriteCars.length === 0 ? (
         <p> Is empty...</p>
       ) : (
-        <div>
+        <FavoriteWrap>
           {favoriteCars.map(car => (
             <Car
               key={car.id}
@@ -61,9 +62,9 @@ const Favorites = () => {
               <ModalDetails />
             </ModalForm>
           )}
-        </div>
+        </FavoriteWrap>
       )}
-    </div>
+    </Container>
   );
 };
 

@@ -1,5 +1,15 @@
 import { useSelector } from 'react-redux';
 import { selectModalData } from 'redux/modal/modalSelectors';
+import {
+  DescrText,
+  ImgModal,
+  LinkStyled,
+  ModalList,
+  RentalWrap,
+  Text,
+  WrapAccesories,
+} from './ModalDetailsStyled';
+import { ModelWrap } from 'components/Car/CarStyled';
 
 const ModalDetails = () => {
   const carInfo = useSelector(selectModalData);
@@ -26,44 +36,49 @@ const ModalDetails = () => {
   const age = rentalCondition[0].split(':');
 
   return (
-    <div>
-      <img src={img} alt={make} />
-      <div>
+    <>
+      <ImgModal src={img} alt={make} />
+      <ModelWrap>
         <p>{make}</p>
         <span>{model}</span>
         <p>{year}</p>
-      </div>
-      <ul>
-        <li>{address.split(', ').splice(1, 1)[0]}</li>
+      </ModelWrap>
+      <ModalList>
+        <li>{address.split(', ').splice(1, 1)[0]} |</li>
         <li>{address.split(', ').splice(-1, 1)[0]}</li>
-        <li>Id:{id}</li>
-        <li>Year:{year}</li>
+        <li>Id:{id} |</li>
+        <li>Year:{year} |</li>
         <li>Type:{type}</li>
-        <li>FuelConsumption:{fuelConsumption}</li>
+        <li>Fuel Consumption:{fuelConsumption} |</li>
         <li>Engine Size:{engineSize}</li>
-      </ul>
-      <p>{description}</p>
-      <p>Accessories and functionalities:</p>
-      <p>
-        {accessories[0]} | {accessories[1]} | {accessories[2]}
-      </p>
-      <p>
-        {functionalities[0]} | {functionalities[1]} | {functionalities[2]}
-      </p>
-      <p>Rental Conditions: </p>
-      <p>
-        {age[0]}: <span>{age[1]}</span>
-      </p>
-      <p>{rentalCondition[1]}</p>
-      <p>{rentalCondition[2]}</p>
-      <p>
-        Mileage:
-        <span>{mileage.toLocaleString('en-US')}</span>
-      </p>
-      <p>
-        Price: <span>{rentalPrice.substring(1)}$</span>
-      </p>
-    </div>
+      </ModalList>
+      <DescrText>{description}</DescrText>
+      <Text>Accessories and functionalities:</Text>
+      <WrapAccesories>
+        <p>
+          {accessories[0]} | {accessories[1]} | {accessories[2]}
+        </p>
+        <p>
+          {functionalities[0]} | {functionalities[1]} | {functionalities[2]}
+        </p>
+      </WrapAccesories>
+      <Text>Rental Conditions:</Text>
+      <RentalWrap>
+        <p>
+          {age[0]}: <span>{age[1]}</span>
+        </p>
+        <p>{rentalCondition[1]}</p>
+        <p>{rentalCondition[2]}</p>
+        <p>
+          Mileage:
+          <span>{mileage.toLocaleString('en-US')}</span>
+        </p>
+        <p>
+          Price: <span>{rentalPrice.substring(1)}$</span>
+        </p>
+      </RentalWrap>
+      <LinkStyled to="tel:+380730000000">Rental car</LinkStyled>
+    </>
   );
 };
 

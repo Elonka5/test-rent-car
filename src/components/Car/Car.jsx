@@ -1,7 +1,17 @@
 import React from 'react';
-import { BtnFav } from './CarStyled';
-// import { useSelector } from 'react-redux';
-// import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
+import {
+  AdressDescr,
+  BtnFav,
+  Card,
+  DescrWrapper,
+  FaHeartStyled,
+  FiHeartStyled,
+  ModelWrap,
+  Price,
+} from './CarStyled';
+import { useSelector } from 'react-redux';
+import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
+import { BtnStyled } from 'components/Button/ButtonStyled';
 
 const Car = ({
   id,
@@ -18,27 +28,32 @@ const Car = ({
   onSwitchFavorite,
   onModalOpen,
 }) => {
-  //   const isFavoriteCar = useSelector(selectFavoriteCar);
+  const isFavoriteCar = useSelector(selectFavoriteCar);
+  const isFavorite = isFavoriteCar.some(item => item.id === id);
+
   return (
-    <li key={id}>
+    <Card key={id}>
       <img src={img} alt="car" />
-      <BtnFav onClick={onSwitchFavorite}></BtnFav>
-      <h2>
-        {' '}
-        {make}
-        <span>{model}</span>
-        <span>{year}</span>
-      </h2>
-      <p>{rentalPrice}</p>
-      <p>
-        {address.split(', ').splice(1, 1)[0]} |{' '}
-        {address.split(', ').splice(-1, 1)[0]} | {rentalCompany} | {type}|{' '}
-        {model} | {id} | {accessories[0]} | {functionalities[0]}
-      </p>
-      <button type="button" id={id} onClick={onModalOpen}>
-        Learn More
-      </button>
-    </li>
+      <BtnFav onClick={onSwitchFavorite}>
+        {isFavorite ? <FaHeartStyled /> : <FiHeartStyled />}
+      </BtnFav>
+      <DescrWrapper>
+        <ModelWrap>
+          <h2> {make}</h2>
+          <span>{model},</span>
+          <p>{year}</p>
+        </ModelWrap>
+        <Price>{rentalPrice}</Price>
+        <AdressDescr>
+          {address.split(', ').splice(1, 1)[0]} |{' '}
+          {address.split(', ').splice(-1, 1)[0]} | {rentalCompany} | {type}|{' '}
+          {model} | {id} | {accessories[0]} | {functionalities[0]}
+        </AdressDescr>
+        <BtnStyled id={id} onClick={onModalOpen}>
+          Learn More
+        </BtnStyled>
+      </DescrWrapper>
+    </Card>
   );
 };
 

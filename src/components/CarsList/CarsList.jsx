@@ -13,6 +13,8 @@ import {
 } from 'redux/favorite/favoriteSlice';
 import { selectIsOpen } from 'redux/modal/modalSelectors';
 import { closeModal, openModal } from 'redux/modal/modalSlice';
+import { CardList, WrapList } from './CarsListStyled';
+import { BtnStyled } from 'components/Button/ButtonStyled';
 
 const CarsList = () => {
   const cars = useSelector(selectCarData);
@@ -51,8 +53,8 @@ const CarsList = () => {
   };
 
   return (
-    <div>
-      <ul>
+    <WrapList>
+      <CardList>
         {cars.slice(0, visibleCars).map(car => {
           return (
             <Car
@@ -63,16 +65,16 @@ const CarsList = () => {
             />
           );
         })}
-      </ul>
+      </CardList>
       {visibleCars < cars.length && (
-        <button onClick={loadMoreCars}>Load More</button>
+        <BtnStyled onClick={loadMoreCars}>Load More</BtnStyled>
       )}
       {isModalOpen && (
         <ModalForm>
           <ModalDetails />
         </ModalForm>
       )}
-    </div>
+    </WrapList>
   );
 };
 

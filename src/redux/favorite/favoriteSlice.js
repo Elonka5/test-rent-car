@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const FAVORITE_KEY = 'favoriteItems';
-
 const initialStateFavorite = {
   favoriteItems: [],
 };

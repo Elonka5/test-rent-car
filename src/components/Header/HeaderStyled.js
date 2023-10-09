@@ -4,6 +4,7 @@ export const HeaderWrap = styled.header`
   border-bottom: 3px solid var(--skyblue);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px,
     rgba(0, 0, 0, 0.14) 0px 1px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 5px -1px;
+  margin-bottom: 30px;
 `;
 
 export const ContainerHeader = styled.div`
