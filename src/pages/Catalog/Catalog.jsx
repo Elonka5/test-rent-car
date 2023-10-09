@@ -11,7 +11,6 @@ const Catalog = () => {
   });
   return (
     <div>
-      Catalog
       <CarsList />
     </div>
   );

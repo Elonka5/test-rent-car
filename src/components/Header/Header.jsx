@@ -1,11 +1,15 @@
 import Navigation from 'components/Navigation/Navigation';
-import React from 'react';
+import logo from '../../images/Untitled__1_-removebg (1).png';
+import { ContainerHeader, HeaderWrap, Logo } from './HeaderStyled';
 
 const Header = () => {
   return (
-    <header>
-      <Navigation />
-    </header>
+    <HeaderWrap>
+      <ContainerHeader>
+        <Logo src={logo} alt="logo" />
+        <Navigation />
+      </ContainerHeader>
+    </HeaderWrap>
   );
 };
 

@@ -1,7 +1,7 @@
 import Car from 'components/Car/Car';
 import ModalDetails from 'components/Modal/ModalDetails';
 import ModalForm from 'components/Modal/ModalForm';
-import React from 'react';
+import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCars } from 'redux/api';
@@ -18,6 +18,7 @@ const CarsList = () => {
   const cars = useSelector(selectCarData);
   const favoriteCars = useSelector(selectFavoriteCar);
   const isModalOpen = useSelector(selectIsOpen);
+  const [visibleCars, setVisibleCars] = useState(8);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,10 +46,14 @@ const CarsList = () => {
     dispatch(closeModal(currentCars));
   };
 
+  const loadMoreCars = () => {
+    setVisibleCars(prevState => prevState + 8);
+  };
+
   return (
     <div>
       <ul>
-        {cars.map(car => {
+        {cars.slice(0, visibleCars).map(car => {
           return (
             <Car
               key={car.id}
@@ -58,12 +63,15 @@ const CarsList = () => {
             />
           );
         })}
-        {isModalOpen && (
-          <ModalForm>
-            <ModalDetails />
-          </ModalForm>
-        )}
       </ul>
+      {visibleCars < cars.length && (
+        <button onClick={loadMoreCars}>Load More</button>
+      )}
+      {isModalOpen && (
+        <ModalForm>
+          <ModalDetails />
+        </ModalForm>
+      )}
     </div>
   );
 };
