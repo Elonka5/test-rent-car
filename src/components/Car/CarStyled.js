@@ -84,4 +84,5 @@ export const AdressDescr = styled.p`
   color: var(--descr-text);
   font-size: 12px;
   font-weight: 400;
+  height: 41px;
 `;

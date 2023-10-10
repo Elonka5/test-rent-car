@@ -1,68 +1,27 @@
-import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import {
-  removeFromFavorites,
-  switchFavorite,
-} from 'redux/favorite/favoriteSlice';
-import { closeModal, openModal } from 'redux/modal/modalSlice';
-import Car from 'components/Car/Car';
 import { selectIsOpen } from 'redux/modal/modalSelectors';
 import ModalForm from 'components/Modal/ModalForm';
 import ModalDetails from 'components/Modal/ModalDetails';
-import { selectCarData } from 'redux/cars/carsSelectors';
-import { Container } from 'pages/Catalog/CatalogStyled';
-import { FavoriteWrap } from './FavoritesStyled';
+import { Container } from 'components/Container/Container';
+import FavoritesItems from 'components/FavoriteItems/FavoriteItems';
+import { selectError, selectIsLoading } from 'redux/cars/carsSelectors';
+import { ErrorImg } from 'components/Error/Error';
+import { Loader } from 'components/Loader/Loader';
 
 const Favorites = () => {
-  const favoriteCars = useSelector(selectFavoriteCar);
   const isModalOpen = useSelector(selectIsOpen);
-  const cars = useSelector(selectCarData);
-  console.log(cars);
-  const dispatch = useDispatch();
-
-  const handleSwitchFavorite = car => {
-    const isFavorite = favoriteCars.some(favCar => favCar.id === car.id);
-    if (isFavorite) {
-      dispatch(removeFromFavorites(car));
-    } else {
-      dispatch(switchFavorite(car));
-    }
-  };
-
-  const handleClickModal = evt => {
-    const currentCars = cars.reduce((foundItem, currentItem) => {
-      if (foundItem) {
-        return foundItem;
-      }
-      return currentItem.id === Number(evt.currentTarget.id)
-        ? currentItem
-        : null;
-    }, null);
-    dispatch(openModal());
-    dispatch(closeModal(currentCars));
-  };
+  const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   return (
     <Container>
-      {favoriteCars.length === 0 ? (
-        <p> Is empty...</p>
-      ) : (
-        <FavoriteWrap>
-          {favoriteCars.map(car => (
-            <Car
-              key={car.id}
-              {...car}
-              onSwitchFavorite={() => handleSwitchFavorite(car)}
-              onModalOpen={handleClickModal}
-            />
-          ))}
-          {isModalOpen && (
-            <ModalForm>
-              <ModalDetails />
-            </ModalForm>
-          )}
-        </FavoriteWrap>
+      {error && <ErrorImg text="Oops... Something went wrong..." />}
+      {isLoading && <Loader />}
+      <FavoritesItems />
+      {isModalOpen && (
+        <ModalForm>
+          <ModalDetails />
+        </ModalForm>
       )}
     </Container>
   );

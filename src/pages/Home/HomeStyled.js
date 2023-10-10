@@ -24,12 +24,21 @@ export const ContainerHome = styled.div`
     max-width: 768px;
     padding: 0 32px;
   }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 1280px;
+    padding: 10px;
+  }
 `;
 
 export const MainText = styled.h1`
-  font-size: 44px;
+  font-size: 28px;
   color: var(--rent);
   margin-bottom: 8px;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 44px;
+  }
 `;
 
 export const Underline = styled(animated.div)`
@@ -43,6 +52,79 @@ export const Underline = styled(animated.div)`
 `;
 
 export const TextAnimated = styled(animated.div)`
-  padding-top: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-top: 280px;
   padding-left: 40px;
+
+  @media only screen and (min-width: 768px) {
+    padding-top: 240px;
+  }
+`;
+
+export const FindText = styled.p`
+  font-family: Montserrat;
+  font-size: 24px;
+  margin-top: 12px;
+  margin-bottom: 10px;
+  padding-left: 54px;
+
+  span {
+    color: var(--skyblue);
+    text-transform: uppercase;
+  }
+`;
+
+export const WrapText = styled.div`
+  background-color: rgba(52, 112, 255, 0.3);
+  position: relative;
+  height: 30px;
+  margin-bottom: 50px;
+  p {
+    position: absolute;
+    text-align: center;
+
+    top: 20%;
+    font-size: 18px;
+    padding-left: 8px;
+  }
+`;
+
+export const RentWrap = styled.div`
+  background-color: rgba(52, 112, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: center;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  img {
+    width: 220px;
+    height: 210px;
+    border-radius: 50%;
+    border: 5px solid var(--skyblue);
+    background-size: cover;
+    margin-bottom: 12px;
+  }
+
+  p {
+    font-size: 24px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-align: center;
+    background-color: var(--white);
+  }
 `;

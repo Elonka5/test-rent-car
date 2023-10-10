@@ -16,6 +16,7 @@ export const BtnStyled = styled.button`
   line-height: 1.4;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 
   &:focus,
   &:hover {
