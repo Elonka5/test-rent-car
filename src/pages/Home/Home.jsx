@@ -2,6 +2,7 @@ import React from 'react';
 import { ContainerHome, MainText, TextAnimated, Underline } from './HomeStyled';
 import { useSpring } from 'react-spring';
 import HomeDetails from 'components/HomeDetails/HomeDetails';
+import FaqSection from 'components/FAQSection/FAQSection';
 
 const Home = () => {
   const fadeIn = useSpring({
@@ -29,6 +30,7 @@ const Home = () => {
         <Underline style={underlineAnimation}></Underline>
       </ContainerHome>
       <HomeDetails />
+      <FaqSection />
     </>
   );
 };

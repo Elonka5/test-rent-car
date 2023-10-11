@@ -10,7 +10,7 @@ const HomeDetails = () => {
   return (
     <Container>
       <FindText>
-        Find <span>your</span> drive
+        Find <span>your</span> Drive
       </FindText>
       <WrapText>
         <p>Explore the Ukraine's largest car sharing marketplace</p>

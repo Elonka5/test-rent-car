@@ -10,9 +10,12 @@ import {
   WrapAccesories,
 } from './ModalDetailsStyled';
 import { ModelWrap } from 'components/Car/CarStyled';
+import { useState } from 'react';
+import defaultImage from '../../images/defaultImage.jpg';
 
 const ModalDetails = () => {
   const carInfo = useSelector(selectModalData);
+  const [imageError, setImageError] = useState(false);
 
   const {
     id,
@@ -35,9 +38,21 @@ const ModalDetails = () => {
   const rentalCondition = rentalConditions.split('\n');
   const age = rentalCondition[0].split(':');
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <>
-      <ImgModal src={img} alt={make} />
+      {imageError ? (
+        <ImgModal src={defaultImage} alt="Default" />
+      ) : (
+        <ImgModal
+          src={img || defaultImage}
+          alt="car"
+          onError={handleImageError}
+        />
+      )}
       <ModelWrap>
         <p>{make}</p>
         <span>{model}</span>
