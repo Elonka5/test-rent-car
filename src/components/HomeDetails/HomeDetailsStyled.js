@@ -66,7 +66,6 @@ export const WrapText = styled.div`
   p {
     position: absolute;
     text-align: center;
-
     top: 20%;
     font-size: 18px;
     padding-left: 8px;
@@ -74,15 +73,26 @@ export const WrapText = styled.div`
 
   @media only screen and (min-width: 768px) {
     height: 30px;
+
+    p {
+      font-size: 28px;
+      left: 8%;
+      width: 600px;
+    }
   }
-  p {
-    font-size: 28px;
-    padding-left: 32px;
-    left: 20%;
+
+  @media screen and (min-width: 1280px) {
+    height: 40px;
+
+    p {
+      font-size: 28px;
+      left: 18%;
+      width: 800px;
+    }
   }
 `;
 
-export const FindText = styled.p`
+export const FindText = styled.h2`
   font-family: Montserrat;
   font-size: 24px;
   margin-top: 12px;
@@ -96,8 +106,5 @@ export const FindText = styled.p`
 
   @media only screen and (min-width: 768px) {
     font-size: 48px;
-  }
-
-  @media screen and (min-width: 1280px) {
   }
 `;

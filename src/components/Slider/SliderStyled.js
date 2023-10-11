@@ -7,6 +7,7 @@ export const SliderWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 12px;
+  margin-bottom: 28px;
 
   img {
     width: 260px;
@@ -30,12 +31,12 @@ export const SliderWrap = styled.div`
     gap: 94px;
     flex-direction: row;
     flex-wrap: wrap;
-  }
 
-  img {
-    width: 460px;
-    margin-left: 20px;
-    margin-right: 0;
+    img {
+      width: 460px;
+      margin-left: 20px;
+      margin-right: 0;
+    }
   }
 `;
 

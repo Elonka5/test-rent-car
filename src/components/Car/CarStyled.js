@@ -11,6 +11,7 @@ export const BtnFav = styled.button`
   background-color: transparent;
   border: none;
   padding: 2px;
+  cursor: pointer;
 `;
 
 export const FiHeartStyled = styled(FiHeart)`
