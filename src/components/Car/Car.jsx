@@ -11,9 +11,9 @@ import {
 } from './CarStyled';
 import { useSelector } from 'react-redux';
 import { selectFavoriteCar } from 'redux/favorite/favoriteSelectors';
-import { BtnStyled } from 'components/Button/ButtonStyled';
 import defaultImage from '../../images/defaultImage.jpg';
 import { useState } from 'react';
+import Button from 'components/Button/Button';
 
 const Car = ({
   id,
@@ -41,7 +41,7 @@ const Car = ({
   return (
     <Card key={id}>
       {imageError ? (
-        <img src={defaultImage} alt="Default" />
+        <img src={defaultImage} alt="default" />
       ) : (
         <img src={img || defaultImage} alt="car" onError={handleImageError} />
       )}
@@ -60,9 +60,12 @@ const Car = ({
           {address.split(', ').splice(-1, 1)[0]} | {rentalCompany} | {type}|{' '}
           {model} | {id} | {accessories[0]} | {functionalities[0]}
         </AdressDescr>
-        <BtnStyled id={id} onClick={onModalOpen}>
-          Learn More
-        </BtnStyled>
+        <Button
+          id={id}
+          type="button"
+          onClick={onModalOpen}
+          text="Learn More"
+        ></Button>
       </DescrWrapper>
     </Card>
   );

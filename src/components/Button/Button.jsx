@@ -1,7 +1,11 @@
-import React from 'react';
+import { BtnStyled } from './ButtonStyled';
 
-const Button = ({ onClick, text }) => {
-  return <button onClick={onClick}>{text}</button>;
+const Button = ({ onClick, text, type, id }) => {
+  return (
+    <BtnStyled type={type} id={id} onClick={onClick}>
+      {text}
+    </BtnStyled>
+  );
 };
 
 export default Button;

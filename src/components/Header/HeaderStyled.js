@@ -21,7 +21,7 @@ export const ContainerHeader = styled.div`
 `;
 
 export const Logo = styled.img`
-  width: 90px;
+  width: 100px;
   height: 50px;
 
   @media only screen and (min-width: 768px) {

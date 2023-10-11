@@ -8,8 +8,15 @@ import {
 import { closeModal, openModal } from 'redux/modal/modalSlice';
 import Car from 'components/Car/Car';
 import { selectCarData } from 'redux/cars/carsSelectors';
-import { FavoriteWrap } from './FavoriteItemsStyled';
+import {
+  ContainerFav,
+  EmptyFav,
+  FavText,
+  FavoriteWrap,
+  LinkFav,
+} from './FavoriteItemsStyled';
 import { Container } from 'components/Container/Container';
+import imgempty from '../../images/empty_fav.png';
 
 const FavoriteItems = () => {
   const favoriteCars = useSelector(selectFavoriteCar);
@@ -41,7 +48,14 @@ const FavoriteItems = () => {
   return (
     <Container>
       {favoriteCars.length === 0 ? (
-        <p> No cars found</p>
+        <ContainerFav>
+          <EmptyFav src={imgempty} alt="emptyimg" />
+          <FavText>
+            {' '}
+            No <span>cars</span> found
+          </FavText>{' '}
+          <LinkFav to="/catalog">Go to Catalog</LinkFav>
+        </ContainerFav>
       ) : (
         <FavoriteWrap>
           {favoriteCars.map(car => (
