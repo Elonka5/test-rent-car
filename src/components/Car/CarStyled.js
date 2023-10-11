@@ -18,12 +18,14 @@ export const FiHeartStyled = styled(FiHeart)`
   width: 18px;
   height: 18px;
   color: var(--white);
+  cursor:pointer;
 `;
 
 export const FaHeartStyled = styled(FaHeart)`
   width: 18px;
   height: 18px;
   color: var(--skyblue);
+  cursor:pointer;
 `;
 
 export const Card = styled.li`

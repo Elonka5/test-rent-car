@@ -12,6 +12,7 @@ export const StyledLinkNav = styled(NavLink)`
   padding: 8px 9px;
   font-size: 13px;
   line-height: 1.4;
+  cursor: pointer;
 
   &.active {
     background-color: var(--skyblue);

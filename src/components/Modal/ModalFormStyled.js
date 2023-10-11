@@ -45,6 +45,7 @@ export const CloseBtn = styled.button`
   right: 1%;
   background-color: transparent;
   border: none;
+  cursor: pointer;
 `;
 
 export const CloseSvg = styled(AiOutlineClose)`
