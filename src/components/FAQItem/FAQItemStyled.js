@@ -13,8 +13,6 @@ export const ItemFAQ = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    padding: 14px;
-
     h3 {
       width: 460px;
     }
@@ -38,4 +36,9 @@ export const ArrowDown = styled(IoIosArrowDown)`
 
 export const AnswerText = styled.p`
   line-height: 1.4;
+
+  @media screen and (min-width: 1280px) {
+    width: 460px;
+    text-align: justify;
+  }
 `;
