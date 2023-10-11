@@ -65,6 +65,8 @@ export const LinkFav = styled(Link)`
   transition: all 0.3s ease-in-out;
   font-size: 14px;
   line-height: 1.4;
+  margin-left: auto;
+  margin-right: auto;
 
   &:focus,
   &:hover {

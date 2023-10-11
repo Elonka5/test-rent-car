@@ -17,4 +17,8 @@ export const StyledLinkNav = styled(NavLink)`
     background-color: var(--skyblue);
     color: var(--white);
   }
+
+  @media screen and (min-width: 1280px) {
+    font-size: 18px;
+  }
 `;

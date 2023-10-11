@@ -14,6 +14,10 @@ export const ContainerHeader = styled.div`
   @media screen and (min-width: 340px) and (max-width: 767.9px) {
     gap: 50px;
   }
+
+  @media only screen and (min-width: 1280px) {
+    gap: 90px;
+  }
 `;
 
 export const Logo = styled.img`
@@ -26,7 +30,7 @@ export const Logo = styled.img`
   }
 
   @media only screen and (min-width: 1280px) {
-    width: 130px;
+    width: 150px;
     height: 70px;
   }
 `;

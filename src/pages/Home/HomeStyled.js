@@ -21,12 +21,10 @@ export const ContainerHome = styled.div`
   background-attachment: fixed;
 
   @media only screen and (min-width: 768px) {
-    max-width: 768px;
     padding: 0 32px;
   }
 
   @media screen and (min-width: 1280px) {
-    max-width: 1280px;
     padding: 10px;
   }
 `;
@@ -69,11 +67,18 @@ export const FindText = styled.p`
   font-size: 24px;
   margin-top: 12px;
   margin-bottom: 10px;
-  padding-left: 54px;
+  text-align: center;
 
   span {
     color: var(--skyblue);
     text-transform: uppercase;
+  }
+
+  @media only screen and (min-width: 768px) {
+    font-size: 48px;
+  }
+
+  @media screen and (min-width: 1280px) {
   }
 `;
 
@@ -82,6 +87,7 @@ export const WrapText = styled.div`
   position: relative;
   height: 30px;
   margin-bottom: 50px;
+
   p {
     position: absolute;
     text-align: center;
@@ -89,6 +95,15 @@ export const WrapText = styled.div`
     top: 20%;
     font-size: 18px;
     padding-left: 8px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    height: 30px;
+  }
+  p {
+    font-size: 28px;
+    padding-left: 32px;
+    left: 20%;
   }
 `;
 
@@ -98,6 +113,7 @@ export const RentWrap = styled.div`
   flex-direction: column;
   padding: 20px;
   justify-content: center;
+  margin-bottom: 30px;
 
   ul {
     display: flex;
@@ -126,5 +142,25 @@ export const RentWrap = styled.div`
     margin-bottom: 16px;
     text-align: center;
     background-color: var(--white);
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 18px;
+
+    ul {
+      flex-direction: row;
+      justify-content: center;
+      gap: 72px;
+    }
+
+    img {
+      width: 330px;
+      height: 68%;
+      background-size: cover;
+      margin-bottom: 32px;
+    }
+
+    p {
+      font-size: 28px;
+    }
   }
 `;

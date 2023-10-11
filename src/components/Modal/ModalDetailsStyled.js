@@ -70,6 +70,7 @@ export const RentalWrap = styled.div`
 
   p {
     width: auto;
+    font-family: 'Montserrat';
     padding: 7px 14px;
     background-color: var(--rent);
     border-radius: 35px;

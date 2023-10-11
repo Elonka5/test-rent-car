@@ -7,19 +7,13 @@ import {
 } from 'redux/favorite/favoriteSlice';
 import { closeModal, openModal } from 'redux/modal/modalSlice';
 import Car from 'components/Car/Car';
-import { selectIsOpen } from 'redux/modal/modalSelectors';
-import ModalForm from 'components/Modal/ModalForm';
-import ModalDetails from 'components/Modal/ModalDetails';
 import { selectCarData } from 'redux/cars/carsSelectors';
-
 import { FavoriteWrap } from './FavoriteItemsStyled';
 import { Container } from 'components/Container/Container';
 
 const FavoriteItems = () => {
   const favoriteCars = useSelector(selectFavoriteCar);
-  const isModalOpen = useSelector(selectIsOpen);
   const cars = useSelector(selectCarData);
-  console.log(cars);
   const dispatch = useDispatch();
 
   const handleSwitchFavorite = car => {
@@ -47,7 +41,7 @@ const FavoriteItems = () => {
   return (
     <Container>
       {favoriteCars.length === 0 ? (
-        <p> Is empty...</p>
+        <p> No cars found</p>
       ) : (
         <FavoriteWrap>
           {favoriteCars.map(car => (
@@ -58,11 +52,6 @@ const FavoriteItems = () => {
               onModalOpen={handleClickModal}
             />
           ))}
-          {isModalOpen && (
-            <ModalForm>
-              <ModalDetails />
-            </ModalForm>
-          )}
         </FavoriteWrap>
       )}
     </Container>

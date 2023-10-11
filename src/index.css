@@ -39,3 +39,12 @@ li {
 a {
   text-decoration: none;
 }
+
+.highlight {
+  color: var(--skyblue);
+}
+
+.inactive-icon {
+  color: gray;
+  pointer-events: none;
+}

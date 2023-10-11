@@ -9,11 +9,11 @@ import {
   WrapText,
 } from './HomeStyled';
 import { useSpring } from 'react-spring';
-import { Loader } from 'components/Loader/Loader';
 import { Container } from 'components/Container/Container';
 import imgcar from '../../images/marek-pospisil.webp';
 import imgrent from '../../images/roberto-nickson.jpg';
 import imgtrip from '../../images/reinhart-julian.webp';
+import Slider from 'components/Slider/Slider';
 
 const Home = () => {
   const fadeIn = useSpring({
@@ -35,7 +35,6 @@ const Home = () => {
   return (
     <>
       <ContainerHome>
-        {/* <Loader /> */}
         <TextAnimated style={fadeIn}>
           <MainText>Let's discover Ukraine together</MainText>
         </TextAnimated>
@@ -65,6 +64,7 @@ const Home = () => {
             </li>
           </ul>
         </RentWrap>
+        <Slider />
       </Container>
     </>
   );
